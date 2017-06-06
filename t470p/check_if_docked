@@ -1,0 +1,11 @@
+#!/bin/bash
+while inotifywait -e modify /var/log/syslog; do
+  if tail -n1 /var/log/syslog | grep -i docked; then
+    echo "Docked!";
+    bash -x ~/bin/thinkpad-dock.sh;
+  fi
+  if tail -n1 /var/log/syslog | grep -i undocked; then
+    echo "Undocked!";
+    bash -x ~/bin/thinkpad-dock.sh;
+  fi
+done

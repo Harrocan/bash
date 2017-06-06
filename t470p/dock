@@ -1,3 +1,4 @@
+#!/bin/bash
 case "$1" in
  'start') su - harrocan -c "~/bin/check_if_docked > /dev/null 2>&1 &"; su - harrocan -c "~/bin/thinkpad-dock.sh" ;;
  'stop') echo "Nothing to stop" ;;
